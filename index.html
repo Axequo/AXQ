@@ -6,16 +6,33 @@
     <title>AXQ - The Great Deflation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
-        .solana-gradient { background: linear-gradient(90deg, #9945FF, #14F195); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .stats-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); }
+        body { 
+            background: radial-gradient(circle at center, #111111 0%, #050505 100%); 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100vh;
+            margin: 0;
+        }
+        .solana-gradient { 
+            background: linear-gradient(90deg, #9945FF, #14F195); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .stats-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 <body>
     <div class="max-w-4xl mx-auto px-6 py-16 text-center">
-        <h1 class="text-7xl font-black solana-gradient mb-2 tracking-tighter uppercase">AXQ</h1><div class="flex justify-center mb-6">
-    <img src="WhatsApp Image 2026-02-02 at 9.11.21 AM.jpeg" alt="AXQ Logo" class="h-32 w-32 object-contain">
-</div>
+        
+        <div class="flex justify-center mb-4">
+            <img src="WhatsApp Image 2026-02-02 at 9.11.21 AM.jpeg" alt="AXQ Logo" class="h-40 w-40 object-contain">
+        </div>
+
+        <h1 class="text-7xl font-black solana-gradient mb-2 tracking-tighter uppercase">AXQ</h1>
         <p class="text-zinc-500 uppercase tracking-[0.3em] text-sm mb-12">Solana Deflationary Protocol</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
@@ -26,44 +43,10 @@
             <div class="flex items-center justify-center text-green-400 text-2xl font-bold"> → </div>
             <div class="stats-card p-6 rounded-3xl border-green-500/50">
                 <p class="text-green-400 text-xs uppercase mb-1">Final Scarcity Goal</p>
-                <div class="text-3xl font-mono font-bold">10,000</div>
+                <div class="text-3xl font-mono font-bold text-green-400">10,000</div>
             </div>
         </div>
 
         <div class="stats-card p-10 rounded-3xl mb-12">
-            <p class="text-zinc-500 text-xs uppercase mb-2">Live Progress</p>
+            <p class="text-zinc-500 text-xs uppercase mb-2">Current Live Progress</p>
             <div id="supply-count" class="text-6xl font-mono font-bold tracking-tight text-white">1,000,000,000</div>
-            
-            <div id="status-box" class="mt-8 p-6 rounded-2xl bg-green-500/10 border border-green-500/20">
-                <p id="system-msg" class="text-2xl font-semibold leading-tight text-green-300 italic uppercase">Initializing the burn sequence...</p>
-            </div>
-        </div>
-
-        <button class="bg-white text-black px-12 py-5 rounded-full font-black hover:scale-105 transition uppercase tracking-widest text-sm">Connect Wallet</button>
-
-        <p class="mt-16 text-zinc-600 text-sm max-w-xl mx-auto">
-            A journey from 1 Billion to 10,000 units. <br>
-            <span class="text-zinc-400 uppercase font-bold">The ultimate scarcity has begun.</span>
-        </p>
-    </div>
-
-    <script>
-        // This is the logic that controls the messages
-        function updateDisplay(current) {
-            const display = document.getElementById('supply-count');
-            const msg = document.getElementById('system-msg');
-            display.innerText = current.toLocaleString();
-
-            if (current <= 10000) {
-                msg.innerText = "🏆 YOU MADE IT! ONLY 10,000 UNITS REMAIN!";
-            } else if (current <= 1000000) {
-                msg.innerText = "DIAMOND LEVEL! UNDER 1 MILLION LEFT! 🔥";
-            } else {
-                msg.innerText = "THE JOURNEY TO 10,000 UNITS HAS BEGUN! ✨";
-            }
-        }
-        // Test with current supply
-        updateDisplay(1000000000);
-    </script>
-</body>
-</html>
