@@ -23,10 +23,15 @@
             border: 1px solid rgba(255, 255, 255, 0.08); 
             backdrop-filter: blur(10px);
         }
+        .progress-bar-bg { background: rgba(255, 255, 255, 0.05); }
+        .progress-bar-fill { 
+            background: linear-gradient(90deg, #14F195, #9945FF);
+            transition: width 1.5s ease-in-out;
+        }
     </style>
 </head>
 <body>
-    <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <div class="max-w-4xl mx-auto px-6 py-12 text-center">
         
         <div class="flex justify-center mb-4">
             <img src="WhatsApp Image 2026-02-02 at 9.11.21 AM.jpeg" alt="AXQ Logo" class="h-40 w-40 object-contain">
@@ -35,18 +40,69 @@
         <h1 class="text-7xl font-black solana-gradient mb-2 tracking-tighter uppercase">AXQ</h1>
         <p class="text-zinc-500 uppercase tracking-[0.3em] text-sm mb-12">Solana Deflationary Protocol</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-            <div class="stats-card p-6 rounded-3xl opacity-60">
-                <p class="text-zinc-500 text-xs uppercase mb-1">Original Supply</p>
-                <div class="text-xl font-mono">1,000,000,000</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="stats-card p-6 rounded-3xl border-red-500/20">
+                <p class="text-red-400 text-xs uppercase font-bold mb-1">Tokens Burned (Gone Forever)</p>
+                <div id="burned-count" class="text-3xl font-mono font-bold text-red-500">0</div>
             </div>
-            <div class="flex items-center justify-center text-green-400 text-2xl font-bold"> → </div>
-            <div class="stats-card p-6 rounded-3xl border-green-500/50">
-                <p class="text-green-400 text-xs uppercase mb-1">Final Scarcity Goal</p>
-                <div class="text-3xl font-mono font-bold text-green-400">10,000</div>
+            <div class="stats-card p-6 rounded-3xl border-green-500/20">
+                <p class="text-green-400 text-xs uppercase font-bold mb-1">Current Supply (Remaining)</p>
+                <div id="supply-count" class="text-3xl font-mono font-bold text-white">1,000,000,000</div>
             </div>
         </div>
 
-        <div class="stats-card p-10 rounded-3xl mb-12">
-            <p class="text-zinc-500 text-xs uppercase mb-2">Current Live Progress</p>
-            <div id="supply-count" class="text-6xl font-mono font-bold tracking-tight text-white">1,000,000,000</div>
+        <div class="stats-card p-8 rounded-3xl mb-12">
+            <div class="flex justify-between text-xs uppercase font-bold mb-4 px-1">
+                <span class="text-zinc-500">Start: 1B</span>
+                <span class="solana-gradient">Deflation Progress</span>
+                <span class="text-green-400">Goal: 10K</span>
+            </div>
+            <div class="progress-bar-bg w-full h-6 rounded-full overflow-hidden border border-white/10">
+                <div id="progress-fill" class="progress-bar-fill h-full w-[0%]"></div>
+            </div>
+            <p id="system-msg" class="mt-6 text-xl font-semibold text-green-300 italic uppercase">Initializing Protocol...</p>
+        </div>
+
+        <button class="bg-white text-black px-12 py-5 rounded-full font-black hover:scale-105 transition uppercase tracking-widest text-sm shadow-xl shadow-white/5">Connect Wallet</button>
+
+        <p class="mt-16 text-zinc-600 text-sm max-w-xl mx-auto italic">
+            "Scarcity is not an option, it is the destination."
+        </p>
+    </div>
+
+    <script>
+        const INITIAL_SUPPLY = 1000000000;
+        const GOAL_SUPPLY = 10000;
+
+        function updateProtocol(current) {
+            const supplyDisplay = document.getElementById('supply-count');
+            const burnedDisplay = document.getElementById('burned-count');
+            const fill = document.getElementById('progress-fill');
+            const msg = document.getElementById('system-msg');
+
+            // Cálculos
+            const burned = INITIAL_SUPPLY - current;
+            const progressPercent = (burned / (INITIAL_SUPPLY - GOAL_SUPPLY)) * 100;
+
+            // Actualizar Textos
+            supplyDisplay.innerText = current.toLocaleString();
+            burnedDisplay.innerText = burned.toLocaleString();
+            fill.style.width = progressPercent + "%";
+
+            // Mensajes por etapa
+            if (current <= GOAL_SUPPLY) {
+                msg.innerText = "🏆 MISSION ACCOMPLISHED: 10,000 UNITS REACHED!";
+            } else if (current <= 1000000) {
+                msg.innerText = "DIAMOND STAGE: THE SQUEEZE IS REAL! 🔥";
+            } else if (burned >= INITIAL_SUPPLY / 2) {
+                msg.innerText = "GOLD STAGE: 500 MILLION TOKENS DESTROYED! 🚀";
+            } else {
+                msg.innerText = "THE JOURNEY TO 10,000 UNITS HAS BEGUN! ✨";
+            }
+        }
+
+        // Simulación: Cambia este número para probar cómo se mueve la barra
+        updateProtocol(1000000000); 
+    </script>
+</body>
+</html>
