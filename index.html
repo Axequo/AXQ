@@ -1,43 +1,180 @@
-<div style="width: 380px; background-color: #000; padding: 20px; font-family: sans-serif;">
-    
-    <p style="color: #444; font-size: 11px; letter-spacing: 2px; font-weight: bold; margin-bottom: 20px;">ROADMAP & REWARDS</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXQ - Solana Deflationary Protocol</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    <div style="border: 1px solid #333; border-radius: 12px; padding: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #777; font-size: 14px; margin: 0; text-transform: uppercase;">STAGE 1 (FEE: 5% ENTRY & EXIT)</h3>
-        <p style="color: #fff; font-size: 18px; font-weight: 800; margin: 10px 0;">REWARD: 100 TOKENS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"Small steps lead to great leaps in value."</p>
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { color: #3b82f6; font-size: 60px; margin: 0; letter-spacing: 8px; }
+        .header p { color: #666; font-size: 14px; letter-spacing: 4px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* ROADMAP COLUMN */
+        .roadmap { display: flex; flex-direction: column; gap: 15px; }
+        .label { color: #444; font-size: 12px; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px; }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .card h3 { font-size: 14px; margin: 0; text-transform: uppercase; }
+        .reward { font-size: 18px; font-weight: bold; margin: 10px 0; }
+        .quote { font-size: 11px; color: #555; font-style: italic; margin: 0; }
+
+        /* Stage Colors */
+        .s1 { border-color: #333; } .s1 h3 { color: #888; }
+        .s2 { border-color: #d4af37; } .s2 h3 { color: #d4af37; }
+        .s3 { border-color: #cd7f32; } .s3 h3 { color: #cd7f32; }
+        .s4 { border-color: #3b82f6; } .s4 h3 { color: #3b82f6; }
+        .s5 { border-color: #a855f7; } .s5 h3 { color: #a855f7; }
+        .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.03); } .sf h3 { color: #22c55e; }
+
+        /* MAIN PANEL */
+        .panel { display: flex; flex-direction: column; gap: 25px; }
+        .market-data {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #111;
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #111;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .stat-label { font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
+        .burned { color: #ef4444; }
+        .supply { color: #22c55e; }
+        .value { font-size: 35px; font-weight: bold; }
+
+        .action-area {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #111;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .progress-bg { background: #111; height: 10px; border-radius: 10px; margin: 20px 0; }
+        .progress-fill { width: 10%; height: 100%; background: linear-gradient(90deg, #a855f7, #22c55e); border-radius: 10px; }
+
+        .btn {
+            background: #fff;
+            color: #000;
+            width: 100%;
+            padding: 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>AXQ</h1>
+        <p>SOLANA DEFLATIONARY PROTOCOL</p>
     </div>
 
-    <div style="border: 1px solid #d4af37; border-radius: 12px; padding: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #d4af37; font-size: 14px; margin: 0; text-transform: uppercase;">STAGE 2 (FEE: 4% ENTRY & EXIT)</h3>
-        <p style="color: #fff; font-size: 18px; font-weight: 800; margin: 10px 0;">REWARD: 200 TOKENS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"The fire of deflation is heating up."</p>
+    <div class="container">
+        <div class="roadmap">
+            <div class="label">ROADMAP & REWARDS</div>
+            
+            <div class="card s1">
+                <h3>STAGE 1 (FEE: 5% ENTRY & EXIT)</h3>
+                <div class="reward">REWARD: 100 TOKENS</div>
+                <p class="quote">"Small steps lead to great leaps in value."</p>
+            </div>
+
+            <div class="card s2">
+                <h3>STAGE 2 (FEE: 4% ENTRY & EXIT)</h3>
+                <div class="reward">REWARD: 200 TOKENS</div>
+                <p class="quote">"The fire of deflation is heating up."</p>
+            </div>
+
+            <div class="card s3">
+                <h3>STAGE 3 (FEE: 3% ENTRY & EXIT)</h3>
+                <div class="reward">REWARD: 300 TOKENS</div>
+                <p class="quote">"Scarcity is the mother of all wealth."</p>
+            </div>
+
+            <div class="card s4">
+                <h3>STAGE 4 (FEE: 2% ENTRY & EXIT)</h3>
+                <div class="reward">REWARD: 400 TOKENS</div>
+                <p class="quote">"Only diamond hands reach this level."</p>
+            </div>
+
+            <div class="card s5">
+                <h3>STAGE 5 (FEE: 1% ENTRY & EXIT)</h3>
+                <div class="reward">REWARD: 500 TOKENS</div>
+                <p class="quote">"Rare by design, powerful by community."</p>
+            </div>
+
+            <div class="card sf">
+                <h3>FINAL STAGE (FEE: 0.50%)</h3>
+                <p style="font-size: 12px; font-weight: bold; margin: 5px 0;">GOAL: 10,000 UNITS SUPPLY</p>
+                <p style="color: #22c55e; font-size: 12px; font-weight: bold; margin: 5px 0;">0.5% ENTRY & EXIT FEE</p>
+                <p style="font-size: 11px; margin-bottom: 5px;">DISTRIBUTED DIRECTLY TO HOLDERS</p>
+                <p class="quote">"Legends are forever etched in the final supply."</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="market-data">
+                <span style="color: #22c55e; border: 1px solid #14532d; padding: 10px 20px; border-radius: 30px; font-size: 12px;">WAITING FOR OFFICIAL LAUNCH...</span>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label burned">Tokens Burned</div>
+                    <div class="value" style="color:#ef4444">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label supply">Remaining Supply</div>
+                    <div class="value">1,000,000,000</div>
+                </div>
+            </div>
+
+            <div class="action-area">
+                <div style="color:#22c55e; font-size:12px; font-weight:bold;">GLOBAL DEFLATION PROGRESS</div>
+                <div style="font-size:12px; color:#22c55e; margin-top:10px;">GOAL: 10,000 UNITS SUPPLY & 0.5% HOLDER REWARDS</div>
+                <div class="progress-bg"><div class="progress-fill"></div></div>
+                <button class="btn">Connect Wallet & Swap</button>
+            </div>
+        </div>
     </div>
 
-    <div style="border: 1px solid #cd7f32; border-radius: 12px; padding: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #cd7f32; font-size: 14px; margin: 0; text-transform: uppercase;">STAGE 3 (FEE: 3% ENTRY & EXIT)</h3>
-        <p style="color: #fff; font-size: 18px; font-weight: 800; margin: 10px 0;">REWARD: 300 TOKENS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"Scarcity is the mother of all wealth."</p>
-    </div>
-
-    <div style="border: 1px solid #3b82f6; border-radius: 12px; padding: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #3b82f6; font-size: 14px; margin: 0; text-transform: uppercase;">STAGE 4 (FEE: 2% ENTRY & EXIT)</h3>
-        <p style="color: #fff; font-size: 18px; font-weight: 800; margin: 10px 0;">REWARD: 400 TOKENS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"Only diamond hands reach this level."</p>
-    </div>
-
-    <div style="border: 1px solid #a855f7; border-radius: 12px; padding: 20px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #a855f7; font-size: 14px; margin: 0; text-transform: uppercase;">STAGE 5 (FEE: 1% ENTRY & EXIT)</h3>
-        <p style="color: #fff; font-size: 18px; font-weight: 800; margin: 10px 0;">REWARD: 500 TOKENS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"Rare by design, powerful by community."</p>
-    </div>
-
-    <div style="border: 1px solid #22c55e; border-radius: 12px; padding: 20px; background: rgba(34, 197, 94, 0.03);">
-        <h3 style="color: #22c55e; font-size: 14px; margin: 0; text-transform: uppercase;">FINAL STAGE (FEE: 0.50%)</h3>
-        <p style="color: #fff; font-size: 12px; font-weight: 800; margin: 5px 0;">GOAL: 10,000 UNITS SUPPLY</p>
-        <p style="color: #22c55e; font-size: 12px; font-weight: 800; margin: 5px 0;">0.5% ENTRY & EXIT FEE</p>
-        <p style="color: #fff; font-size: 11px; margin-bottom: 5px;">DISTRIBUTED DIRECTLY TO HOLDERS</p>
-        <p style="color: #555; font-size: 11px; font-style: italic; margin: 0;">"Legends are forever etched in the final supply."</p>
-    </div>
-
-</div>
+</body>
+</html>
