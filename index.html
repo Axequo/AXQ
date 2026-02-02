@@ -10,40 +10,40 @@
             color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* HEADER */
+        /* HEADER CON MONEDA */
         .header { text-align: center; margin-bottom: 30px; }
-        .header img { width: 80px; height: 80px; margin-bottom: 10px; }
-        .header h1 { color: #3b82f6; font-size: 48px; margin: 0; letter-spacing: 5px; font-weight: 900; }
-        .header p { color: #666; font-size: 12px; letter-spacing: 3px; }
+        .header img { width: 90px; height: 90px; margin-bottom: 10px; }
+        .header h1 { color: #3b82f6; font-size: 50px; margin: 0; letter-spacing: 6px; font-weight: 900; }
+        .header p { color: #666; font-size: 13px; letter-spacing: 3px; }
 
         .main-container {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 25px;
-            max-width: 1200px;
+            grid-template-columns: 360px 1fr;
+            gap: 30px;
+            max-width: 1300px;
             width: 100%;
         }
 
         /* ROADMAP */
-        .roadmap { display: flex; flex-direction: column; gap: 12px; }
-        .roadmap-label { color: #444; font-size: 10px; letter-spacing: 2px; font-weight: bold; margin-bottom: 5px; }
+        .roadmap { display: flex; flex-direction: column; gap: 15px; }
+        .roadmap-label { color: #444; font-size: 11px; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px; }
 
         .card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid #222;
             border-radius: 12px;
-            padding: 15px;
+            padding: 18px;
         }
 
-        .card h3 { font-size: 13px; margin: 0; text-transform: uppercase; }
-        .reward { font-size: 16px; font-weight: bold; margin: 8px 0; }
-        .quote { font-size: 10px; color: #555; font-style: italic; margin: 0; }
+        .card h3 { font-size: 14px; margin: 0; text-transform: uppercase; }
+        .reward { font-size: 18px; font-weight: bold; margin: 10px 0; }
+        .quote { font-size: 11px; color: #555; font-style: italic; margin: 0; }
 
         /* Stage Colors */
         .s1 { border-color: #333; } .s1 h3 { color: #777; }
@@ -53,57 +53,58 @@
         .s5 { border-color: #a855f7; } .s5 h3 { color: #a855f7; }
         .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.05); } .sf h3 { color: #22c55e; }
 
-        /* PANEL CENTRAL */
-        .panel { display: flex; flex-direction: column; gap: 20px; }
+        /* PANEL CENTRAL CON VELAS */
+        .panel { display: flex; flex-direction: column; gap: 25px; }
 
         .market-box {
-            background: rgba(255, 255, 255, 0.02) url('velas.png') no-repeat center;
+            background: rgba(0, 0, 0, 0.5) url('velas.png') no-repeat center;
             background-size: cover;
             border: 1px solid #111;
             border-radius: 20px;
-            height: 380px;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .badge {
             border: 1px solid #14532d;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: #22c55e;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 11px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 12px;
             font-weight: bold;
         }
 
-        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .stat-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid #111;
             border-radius: 20px;
-            padding: 20px;
+            padding: 25px;
         }
 
-        .stat-label { font-size: 10px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
-        .val { font-size: 32px; font-weight: 900; }
+        .stat-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
+        .val { font-size: 38px; font-weight: 900; }
 
         .action-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid #111;
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
         }
 
-        .progress-bar { background: #111; height: 8px; border-radius: 10px; margin: 15px 0; }
+        .progress-bar { background: #111; height: 10px; border-radius: 10px; margin: 20px 0; overflow: hidden; }
         .fill { width: 8%; height: 100%; background: linear-gradient(90deg, #a855f7, #22c55e); border-radius: 10px; }
 
         .btn {
             background: #fff;
             color: #000;
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             border-radius: 40px;
             font-weight: 900;
             text-transform: uppercase;
@@ -116,7 +117,7 @@
 <body>
 
     <div class="header">
-        <img src="moneda.png" alt="AXQ">
+        <img src="moneda.png" alt="AXQ Coin">
         <h1>AXQ</h1>
         <p>SOLANA DEFLATIONARY PROTOCOL</p>
     </div>
@@ -157,9 +158,9 @@
 
             <div class="card sf">
                 <h3>FINAL STAGE (FEE: 0.50%)</h3>
-                <p style="font-size: 11px; font-weight: bold; margin: 5px 0;">GOAL: 10,000 UNITS SUPPLY</p>
-                <p style="color: #22c55e; font-size: 11px; font-weight: bold; margin: 5px 0;">0.5% ENTRY & EXIT FEE</p>
-                <p style="font-size: 10px; margin-bottom: 5px;">DISTRIBUTED DIRECTLY TO HOLDERS</p>
+                <p style="font-size: 12px; font-weight: bold; margin: 5px 0;">GOAL: 10,000 UNITS SUPPLY</p>
+                <p style="color: #22c55e; font-size: 12px; font-weight: bold; margin: 5px 0;">0.5% ENTRY & EXIT FEE</p>
+                <p style="font-size: 11px; margin-bottom: 5px;">DISTRIBUTED DIRECTLY TO HOLDERS</p>
                 <p class="quote">"Legends are forever etched in the final supply."</p>
             </div>
         </div>
@@ -181,7 +182,8 @@
             </div>
 
             <div class="action-card">
-                <div style="color:#22c55e; font-size:11px; font-weight:bold;">GLOBAL DEFLATION PROGRESS</div>
+                <div style="color:#22c55e; font-size:12px; font-weight:bold; letter-spacing: 1px;">GLOBAL DEFLATION PROGRESS</div>
+                <div style="font-size:12px; color:#22c55e; margin: 10px 0;">GOAL: 10,000 UNITS SUPPLY & 0.5% HOLDER REWARDS</div>
                 <div class="progress-bar"><div class="fill"></div></div>
                 <button class="btn">Connect Wallet & Swap</button>
             </div>
