@@ -1,43 +1,121 @@
-<div style="background-color: #000; color: #fff; font-family: sans-serif; padding: 20px; width: 350px;">
-    
-    <p style="color: #666; font-size: 12px; letter-spacing: 2px; margin-bottom: 20px;">ROADMAP & REWARDS</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXQ - Solana Deflationary Protocol</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif, Arial;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    <div style="border: 1px solid #444; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #888; font-size: 14px; margin: 0;">STAGE 1 (FEE: 5% ENTRY & EXIT)</h3>
-        <p style="font-weight: bold; margin: 5px 0;">REWARD: 100 TOKENS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"Small steps lead to great leaps in value."</p>
-    </div>
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    <div style="border: 1px solid #d4af37; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #d4af37; font-size: 14px; margin: 0;">STAGE 2 (FEE: 4% ENTRY & EXIT)</h3>
-        <p style="font-weight: bold; margin: 5px 0;">REWARD: 200 TOKENS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"The fire of deflation is heating up."</p>
-    </div>
+        .header h1 {
+            color: #3b82f6;
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 5px;
+        }
 
-    <div style="border: 1px solid #cd7f32; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #cd7f32; font-size: 14px; margin: 0;">STAGE 3 (FEE: 3% ENTRY & EXIT)</h3>
-        <p style="font-weight: bold; margin: 5px 0;">REWARD: 300 TOKENS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"Scarcity is the mother of all wealth."</p>
-    </div>
+        .header p {
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
 
-    <div style="border: 1px solid #3b82f6; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #3b82f6; font-size: 14px; margin: 0;">STAGE 4 (FEE: 2% ENTRY & EXIT)</h3>
-        <p style="font-weight: bold; margin: 5px 0;">REWARD: 400 TOKENS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"Only diamond hands reach this level."</p>
-    </div>
+        .main-container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
 
-    <div style="border: 1px solid #a855f7; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02);">
-        <h3 style="color: #a855f7; font-size: 14px; margin: 0;">STAGE 5 (FEE: 1% ENTRY & EXIT)</h3>
-        <p style="font-weight: bold; margin: 5px 0;">REWARD: 500 TOKENS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"Rare by design, powerful by community."</p>
-    </div>
+        /* COLUMNA IZQUIERDA: ROADMAP */
+        .roadmap-column {
+            flex: 1;
+            max-width: 350px;
+        }
 
-    <div style="border: 1px solid #22c55e; border-radius: 10px; padding: 15px; background: rgba(34, 197, 94, 0.05);">
-        <h3 style="color: #22c55e; font-size: 14px; margin: 0;">FINAL STAGE (FEE: 0.50%)</h3>
-        <p style="font-size: 12px; font-weight: bold; margin: 5px 0;">GOAL: 10,000 UNITS SUPPLY</p>
-        <p style="color: #22c55e; font-size: 12px; font-weight: bold; margin: 5px 0;">0.5% ENTRY & EXIT FEE</p>
-        <p style="font-size: 11px; margin: 5px 0;">DISTRIBUTED DIRECTLY TO HOLDERS</p>
-        <p style="color: #777; font-size: 11px; font-style: italic; margin: 0;">"Legends are forever etched in the final supply."</p>
-    </div>
+        .section-title {
+            color: #444;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
 
-</div>
+        .stage-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .stage-card h3 { font-size: 13px; margin: 0; }
+        .reward { font-size: 16px; font-weight: bold; margin: 8px 0; }
+        .quote { font-size: 10px; color: #666; font-style: italic; margin: 0; }
+
+        /* Colores de los Bordes */
+        .s1 { border-color: #444; } .s1 h3 { color: #888; }
+        .s2 { border-color: #d4af37; } .s2 h3 { color: #d4af37; }
+        .s3 { border-color: #cd7f32; } .s3 h3 { color: #cd7f32; }
+        .s4 { border-color: #3b82f6; } .s4 h3 { color: #3b82f6; }
+        .s5 { border-color: #a855f7; } .s5 h3 { color: #a855f7; }
+        .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.05); } .sf h3 { color: #22c55e; }
+
+        /* COLUMNA DERECHA: MARKET DATA & STATS */
+        .content-column {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .market-chart {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
+            border-radius: 15px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .status-badge {
+            background: rgba(0, 255, 0, 0.1);
+            color: #22c55e;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 10px;
+            border: 1px solid #14532d;
+            letter-spacing: 1px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .stat-label { color: #ef4444; font-size: 10px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+        .stat-box.supply .stat-label { color: #22c55e; }
+        .stat-value { font-size: 32px; font-weight: bold; }
