@@ -5,126 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AXQ - Solana Deflationary Protocol</title>
     <style>
+        /* Fondo base negro para que nunca se vea vacío */
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #000000 !important;
+            color: #ffffff;
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
-            padding: 30px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* CABECERA CON LOGO */
-        .header { text-align: center; margin-bottom: 35px; }
-        .coin-logo { width: 85px; height: 85px; margin-bottom: 10px; }
-        .header h1 { color: #3b82f6; font-size: 50px; margin: 0; letter-spacing: 7px; font-weight: 900; }
-        .header p { color: #666; font-size: 13px; letter-spacing: 3px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .coin-logo { width: 80px; height: 80px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+        .header h1 { color: #3b82f6; font-size: 45px; margin: 0; letter-spacing: 6px; }
+        .header p { color: #666; font-size: 12px; letter-spacing: 2px; }
 
         .main-container {
             display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 30px;
-            max-width: 1300px;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+            max-width: 1200px;
             width: 100%;
         }
 
-        /* COLUMNA ROADMAP */
-        .roadmap-column { display: flex; flex-direction: column; gap: 15px; }
-        .section-label { color: #444; font-size: 11px; letter-spacing: 2px; font-weight: bold; margin-bottom: 15px; }
-
+        /* ROADMAP IZQUIERDA */
         .card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid #222;
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
         }
 
-        .card h3 { font-size: 14px; margin: 0; text-transform: uppercase; }
-        .reward { font-size: 17px; font-weight: 800; margin: 8px 0; }
-        .quote { font-size: 10px; color: #555; font-style: italic; margin: 0; }
+        /* Stage Titles con ENTRY & EXIT */
+        .s1 { border-color: #333; color: #777; }
+        .s2 { border-color: #d4af37; color: #d4af37; }
+        .s3 { border-color: #cd7f32; color: #cd7f32; }
+        .s4 { border-color: #3b82f6; color: #3b82f6; }
+        .s5 { border-color: #a855f7; color: #a855f7; }
+        .sf { border-color: #22c55e; }
 
-        /* Colores de Bordes Stage 1-5 */
-        .s1 { border-color: #333; } .s1 h3 { color: #777; }
-        .s2 { border-color: #d4af37; } .s2 h3 { color: #d4af37; }
-        .s3 { border-color: #cd7f32; } .s3 h3 { color: #cd7f32; }
-        .s4 { border-color: #3b82f6; } .s4 h3 { color: #3b82f6; }
-        .s5 { border-color: #a855f7; } .s5 h3 { color: #a855f7; }
-        .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.04); } .sf h3 { color: #22c55e; }
-
-        /* PANEL CENTRAL Y GRÁFICO */
-        .main-panel { display: flex; flex-direction: column; gap: 25px; }
-
+        /* PANEL CENTRAL */
         .market-box {
-            background-color: rgba(255, 255, 255, 0.01);
-            background-image: url('velas.png'); /* Imagen de las velas */
+            background: #0a0a0a url('velas.png') no-repeat center;
             background-size: cover;
-            background-position: center;
             border: 1px solid #111;
-            border-radius: 18px;
-            height: 400px;
+            border-radius: 15px;
+            height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
         }
 
-        .market-box::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5); /* Sombreado para resaltar texto */
-            border-radius: 18px;
-        }
-
         .status-badge {
-            position: relative;
-            z-index: 1;
             border: 1px solid #14532d;
-            background: rgba(34, 197, 94, 0.1);
+            background: rgba(0, 0, 0, 0.7);
             color: #22c55e;
-            padding: 10px 22px;
-            border-radius: 25px;
-            font-size: 12px;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
-        /* STATS */
-        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .stat-card { background: rgba(255, 255, 255, 0.02); border: 1px solid #111; border-radius: 18px; padding: 25px; }
-        .stat-label { font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 12px; }
-        .burned { color: #ef4444; }
-        .supply { color: #22c55e; }
-        .stat-value { font-size: 36px; font-weight: 900; }
-
-        /* ACCIÓN INFERIOR */
-        .action-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid #111;
-            border-radius: 18px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .progress-bar { background: #111; height: 10px; border-radius: 10px; margin: 18px 0; overflow: hidden; }
-        .progress-fill { width: 8%; height: 100%; background: linear-gradient(90deg, #a855f7, #22c55e); }
+        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .stat-card { background: rgba(255, 255, 255, 0.02); border: 1px solid #111; border-radius: 15px; padding: 20px; }
+        .stat-value { font-size: 30px; font-weight: bold; }
 
         .btn-swap {
             background: #fff;
             color: #000;
             width: 100%;
-            padding: 18px;
-            border-radius: 40px;
-            font-weight: 900;
+            padding: 15px;
+            border-radius: 30px;
+            font-weight: bold;
             text-transform: uppercase;
             border: none;
-            font-size: 18px;
+            margin-top: 20px;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .btn-swap:hover { background: #ccc; }
     </style>
 </head>
 <body>
+
+    <div class="header">
+        <img src="moneda.png" alt="AXQ Logo" class="coin-logo">
+        <h1>AXQ</h1>
+        <p>SOLANA DEFLATIONARY PROTOCOL</p>
+    </div>
+
+    <div class="main-container">
+        <div class="roadmap">
+            <div class="card s1"><h3>STAGE 1 (FEE: 5% ENTRY & EXIT)</h3><p>REWARD: 100 TOKENS</p></div>
+            <div class="card s2"><h3>STAGE 2 (FEE: 4% ENTRY & EXIT)</h3><p>REWARD: 200 TOKENS</p></div>
+            <div class="card s3"><h3>STAGE 3 (FEE: 3% ENTRY & EXIT)</h3><p>REWARD: 300 TOKENS</p></div>
+            <div class="card s4"><h3>STAGE 4 (FEE: 2% ENTRY & EXIT)</h3><p>REWARD: 400 TOKENS</p></div>
+            <div class="card s5"><h3>STAGE 5 (FEE: 1% ENTRY & EXIT)</h3><p>REWARD: 500 TOKENS</p></div>
+            <div class="card sf">
+                <h3 style="color:#22c55e">FINAL STAGE (FEE: 0.50%)</h3>
+                <p>0.5% ENTRY & EXIT FEE</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="market-box">
+                <div class="status-badge">WAITING FOR OFFICIAL LAUNCH...</div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card"><div style="color:#ef4444">Tokens Burned</div><div class="stat-value">0</div></div>
+                <div class="stat-card"><div style="color:#22c55e">Remaining Supply</div><div class="stat-value">1,000,000,000</div></div>
+            </div>
+            <button class="btn-swap">Connect Wallet & Swap</button>
+        </div>
+    </div>
+
+</body>
+</html>
