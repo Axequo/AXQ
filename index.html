@@ -10,7 +10,7 @@
             color: #fff;
             font-family: 'Inter', sans-serif, Arial;
             margin: 0;
-            padding: 20px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,104 +18,99 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .header h1 {
             color: #3b82f6;
-            font-size: 48px;
+            font-size: 52px;
             margin: 0;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
+            font-weight: 900;
         }
 
         .header p {
             color: #666;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-top: 5px;
         }
 
-        .main-container {
-            display: flex;
-            gap: 20px;
-            max-width: 1200px;
+        .main-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 30px;
+            max-width: 1300px;
             width: 100%;
         }
 
-        /* COLUMNA IZQUIERDA: ROADMAP */
-        .roadmap-column {
-            flex: 1;
-            max-width: 350px;
+        /* LEFT COLUMN: ROADMAP */
+        .roadmap-section {
+            display: flex;
+            flex-direction: column;
         }
 
-        .section-title {
+        .section-label {
             color: #444;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 20px;
             margin-bottom: 15px;
         }
 
-        .stage-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-        }
+        .card h3 { font-size: 14px; margin: 0; text-transform: uppercase; }
+        .reward-text { font-size: 18px; font-weight: 800; margin: 10px 0; }
+        .quote-text { font-size: 11px; color: #555; font-style: italic; margin: 0; }
 
-        .stage-card h3 { font-size: 13px; margin: 0; }
-        .reward { font-size: 16px; font-weight: bold; margin: 8px 0; }
-        .quote { font-size: 10px; color: #666; font-style: italic; margin: 0; }
+        /* Stage Colors */
+        .border-grey { border-color: #333; } .border-grey h3 { color: #777; }
+        .border-gold { border-color: #d4af37; } .border-gold h3 { color: #d4af37; }
+        .border-bronze { border-color: #cd7f32; } .border-bronze h3 { color: #cd7f32; }
+        .border-blue { border-color: #3b82f6; } .border-blue h3 { color: #3b82f6; }
+        .border-purple { border-color: #a855f7; } .border-purple h3 { color: #a855f7; }
+        .border-green { border-color: #22c55e; background: rgba(34, 197, 94, 0.03); } .border-green h3 { color: #22c55e; }
 
-        /* Colores de los Bordes */
-        .s1 { border-color: #444; } .s1 h3 { color: #888; }
-        .s2 { border-color: #d4af37; } .s2 h3 { color: #d4af37; }
-        .s3 { border-color: #cd7f32; } .s3 h3 { color: #cd7f32; }
-        .s4 { border-color: #3b82f6; } .s4 h3 { color: #3b82f6; }
-        .s5 { border-color: #a855f7; } .s5 h3 { color: #a855f7; }
-        .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.05); } .sf h3 { color: #22c55e; }
-
-        /* COLUMNA DERECHA: MARKET DATA & STATS */
-        .content-column {
-            flex: 2;
+        /* RIGHT COLUMN: MAIN PANEL */
+        .main-panel {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
-        .market-chart {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #222;
-            border-radius: 15px;
-            height: 350px;
+        .market-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #111;
+            border-radius: 20px;
+            height: 400px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
         }
 
-        .status-badge {
-            background: rgba(0, 255, 0, 0.1);
+        .market-label { position: absolute; top: 25px; right: 25px; color: #333; font-size: 11px; font-weight: bold; }
+
+        .launch-badge {
+            background: rgba(34, 197, 94, 0.1);
             color: #22c55e;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 10px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 11px;
             border: 1px solid #14532d;
-            letter-spacing: 1px;
+            font-weight: bold;
         }
 
-        .stats-row {
-            display: flex;
-            gap: 20px;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
-
-        .stat-box {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #222;
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .stat-label { color: #ef4444; font-size: 10px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
-        .stat-box.supply .stat-label { color: #22c55e; }
-        .stat-value { font-size: 32px; font-weight: bold; }
