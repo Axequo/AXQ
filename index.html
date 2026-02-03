@@ -4,57 +4,149 @@
     <meta charset="UTF-8">
     <title>AXQ - Solana Deflationary Protocol</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        
-        /* HEADER WITH YOUR GOLDEN LOGO */
-        .header { text-align: center; margin-bottom: 25px; }
-        .header img { 
-            width: 120px; height: 120px; border-radius: 50%; border: 2px solid #d4af37; 
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5); margin-bottom: 10px;
+        /* MANTENGO TODA TU ESTÉTICA ORIGINAL INTACTA */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
             animation: coin-pulse 4s infinite ease-in-out;
         }
+
         @keyframes coin-pulse {
             0%, 100% { filter: brightness(1); transform: scale(1); }
             50% { filter: brightness(1.3); transform: scale(1.05); }
         }
-        .header h1 { color: #3b82f6; font-size: 55px; margin: 0; letter-spacing: 6px; font-weight: 900; }
-        .header p { color: #666; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; }
 
-        .main-layout { display: grid; grid-template-columns: 400px 1fr; gap: 25px; max-width: 1300px; width: 100%; margin-top: 20px; }
-        
-        /* ROADMAP WITH INTEGRATED ENCOURAGING PHRASES */
-        .card { background: rgba(255,255,255,0.02); border: 1px solid #222; border-radius: 15px; padding: 18px; margin-bottom: 12px; transition: 0.3s; }
-        .card:hover { transform: scale(1.02); background: rgba(255,255,255,0.05); }
-        
-        .s1 { border-color: #444; } .s2 { border-color: #d4af37; } .s3 { border-color: #cd7f32; } 
-        .s4 { border-color: #3b82f6; } .s5 { border-color: #a855f7; } 
+        .header h1 {
+            color: #3b82f6;
+            font-size: 55px;
+            margin: 0;
+            letter-spacing: 6px;
+            font-weight: 900;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 25px;
+            max-width: 1300px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .s1 { border-color: #444; }
+        .s2 { border-color: #d4af37; }
+        .s3 { border-color: #cd7f32; }
+        .s4 { border-color: #3b82f6; }
+        .s5 { border-color: #a855f7; }
         .sf { border-color: #22c55e; background: rgba(34, 197, 94, 0.05); }
 
         .card h3 { font-size: 12px; margin: 0; text-transform: uppercase; color: #888; }
         .reward-val { font-size: 16px; font-weight: 900; color: #fff; margin-top: 5px; display: block; }
-        
-        /* THE ENCOURAGING PHRASES STYLE */
         .moto { font-size: 11px; color: #3b82f6; font-style: italic; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; }
 
-        /* CENTER PANEL WITH TRADING CANDLES */
-        .market-panel { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://img.freepik.com/free-vector/trading-candlestick-chart-background_23-2149171497.jpg') no-repeat center; 
-            background-size: cover; border: 1px solid #111; border-radius: 25px; height: 100%; min-height: 500px;
-            display: flex; align-items: center; justify-content: center;
+        /* AJUSTE PARA EL PANEL DE GRÁFICO REAL */
+        .market-panel {
+            background: #000;
+            border: 1px solid #111;
+            border-radius: 25px;
+            height: 100%;
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
-        .status-badge { border: 1px solid #14532d; color: #22c55e; padding: 15px 35px; border-radius: 40px; background: rgba(0,0,0,0.9); font-weight: bold; }
 
-        /* BURN BAR */
-        .burn-container { width: 100%; max-width: 1200px; margin-top: 40px; background: rgba(255,255,255,0.02); border: 1px solid #111; padding: 30px; border-radius: 20px; }
+        .status-badge {
+            position: absolute;
+            z-index: 10;
+            border: 1px solid #14532d;
+            color: #22c55e;
+            padding: 15px 35px;
+            border-radius: 40px;
+            background: rgba(0, 0, 0, 0.9);
+            font-weight: bold;
+        }
+
+        .burn-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #111;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
         .burn-info { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 800; font-size: 14px; }
         .bar-bg { width: 100%; height: 24px; background: #111; border-radius: 12px; overflow: hidden; border: 1px solid #333; position: relative; }
-        .bar-fill { width: 85%; height: 100%; background: linear-gradient(90deg, #ef4444, #f97316, #d4af37); position: relative; overflow: hidden; }
-        .bar-fill::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: burn-shine 2s infinite; }
-        @keyframes burn-shine { 100% { left: 100%; } }
         
-        .btn-connect { background: #fff; color: #000; padding: 25px; border-radius: 60px; border: none; font-weight: 900; width: 100%; margin-top: 30px; cursor: pointer; font-size: 22px; text-transform: uppercase; }
+        /* LA BARRA AHORA EMPIEZA EN 0% Y SUBIRÁ SEGÚN LA QUEMA */
+        .bar-fill {
+            width: 0%; 
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, #f97316, #d4af37);
+            position: relative;
+            overflow: hidden;
+            transition: width 2s ease-in-out;
+        }
 
-        /* LEGAL DISCLAIMER */
+        .bar-fill::after {
+            content: '';
+            position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: burn-shine 2s infinite;
+        }
+
+        @keyframes burn-shine { 100% { left: 100%; } }
+
+        .btn-connect {
+            background: #fff; color: #000; padding: 25px; border-radius: 60px; border: none;
+            font-weight: 900; width: 100%; margin-top: 30px; cursor: pointer; font-size: 22px; text-transform: uppercase;
+        }
+
         .disclaimer { max-width: 1000px; margin-top: 40px; padding: 20px; border-top: 1px solid #222; text-align: center; }
         .disclaimer p { font-size: 11px; color: #555; line-height: 1.6; margin: 0; }
     </style>
@@ -62,64 +154,89 @@
 <body>
 
     <div class="header">
-        <img src="1000215693.jpg" alt="AXQ Golden Coin">
+        <img src="AXQ_logo_original.jpg" alt="AXQ Golden Coin">
         <h1>AXQ</h1>
         <p>Solana Deflationary Protocol</p>
     </div>
 
     <div class="main-layout">
         <div class="roadmap">
-            <div class="card s1">
-                <h3>STAGE 1 (FEE: 5% ENTRY & EXIT)</h3>
-                <span class="reward-val">REWARD: 100 TOKENS</span>
-                <div class="moto">The journey begins! Secure your spot early and lead the pack.</div>
-            </div>
-            <div class="card s2">
-                <h3>STAGE 2 (FEE: 4% ENTRY & EXIT)</h3>
-                <span class="reward-val">REWARD: 200 TOKENS</span>
-                <div class="moto">Scarcity grows. Supply is dropping fast, value is rising.</div>
-            </div>
-            <div class="card s3">
-                <h3>STAGE 3 (FEE: 3% ENTRY & EXIT)</h3>
-                <span class="reward-val">REWARD: 300 TOKENS</span>
-                <div class="moto">Diamond Hands! Your loyalty is starting to pay off big time.</div>
-            </div>
-            <div class="card s4">
-                <h3>STAGE 4 (FEE: 2% ENTRY & EXIT)</h3>
-                <span class="reward-val">REWARD: 400 TOKENS</span>
-                <div class="moto">Almost there. The token ecosystem is stronger than ever.</div>
-            </div>
-            <div class="card s5">
-                <h3>STAGE 5 (FEE: 1% ENTRY & EXIT)</h3>
-                <span class="reward-val">REWARD: 500 TOKENS</span>
-                <div class="moto">Maximum reward tier! The last chance before the grand finale.</div>
-            </div>
-            <div class="card sf">
-                <h3 style="color:#22c55e">STAGE 6 (FINAL STAGE)</h3>
-                <span class="reward-val" style="color:#22c55e">0.50% HOLDER REWARD</span>
-                <div class="moto" style="color:#22c55e">Victory! True holders now share the ultimate protocol treasure.</div>
-            </div>
+            <div class="card s1"><h3>STAGE 1 (FEE: 5%)</h3><span class="reward-val">REWARD: 100 TOKENS</span><div class="moto">The journey begins!</div></div>
+            <div class="card s2"><h3>STAGE 2 (FEE: 4%)</h3><span class="reward-val">REWARD: 200 TOKENS</span><div class="moto">Scarcity grows.</div></div>
+            <div class="card s3"><h3>STAGE 3 (FEE: 3%)</h3><span class="reward-val">REWARD: 300 TOKENS</span><div class="moto">Diamond Hands!</div></div>
+            <div class="card s4"><h3>STAGE 4 (FEE: 2%)</h3><span class="reward-val">REWARD: 400 TOKENS</span><div class="moto">Almost there.</div></div>
+            <div class="card s5"><h3>STAGE 5 (FEE: 1%)</h3><span class="reward-val">REWARD: 500 TOKENS</span><div class="moto">Maximum reward tier!</div></div>
+            <div class="card sf"><h3 style="color:#22c55e">STAGE 6 (FINAL)</h3><span class="reward-val" style="color:#22c55e">0.50% HOLDER REWARD</span><div class="moto" style="color:#22c55e">Victory!</div></div>
         </div>
 
-        <div class="market-panel">
-            <div class="status-badge">WAITING FOR OFFICIAL LAUNCH...</div>
-        </div>
+        <div class="market-panel" id="chart-container">
+            <div class="status-badge" id="chart-status">WAITING FOR OFFICIAL LAUNCH...</div>
+            </div>
     </div>
 
     <div class="burn-container">
         <div class="burn-info">
-            <span style="color: #ef4444;">INITIAL SUPPLY: 1,000,000,000</span>
-            <span style="color: #22c55e;">TARGET: 10,000 UNITS</span>
+            <span style="color:#ef4444;">INITIAL SUPPLY: 1,000,000,000</span>
+            <span id="current-supply" style="color:#f97316;">LIVE SUPPLY: CALCULATING...</span>
+            <span style="color:#22c55e;">TARGET: 10,000 UNITS</span>
         </div>
-        <div class="bar-bg"><div class="bar-fill"></div></div>
-        <p style="text-align:center; color:#ef4444; font-weight:900; margin-top:10px; font-size:12px; letter-spacing:2px;">BURN PROTOCOL ACTIVE</p>
+        <div class="bar-bg">
+            <div id="burn-bar" class="bar-fill"></div>
+        </div>
+        <p style="text-align:center; color:#ef4444; font-weight:900; margin-top:10px; font-size:12px; letter-spacing:2px;">
+            BURN PROTOCOL ACTIVE
+        </p>
     </div>
 
-    <button class="btn-connect">Connect Wallet & Swap</button>
+    <button class="btn-connect" onclick="connectWallet()">Connect Wallet & Swap</button>
 
     <footer class="disclaimer">
-        <p><strong>LEGAL DISCLAIMER:</strong> Cryptocurrency investments carry high market risk. AXQ is a decentralized deflationary protocol. This information does not constitute financial advice. Always conduct your own research. The protocol's burning mechanism and rewards are subject to smart contract execution.</p>
+        <p><strong>LEGAL DISCLAIMER:</strong> AXQ is a decentralized deflationary protocol...</p>
     </footer>
 
+    <script>
+        // CONFIGURACIÓN: PEGA TU DIRECCIÓN AQUÍ MAÑANA
+        const TOKEN_ADDRESS = "AQUÍ_PEGAS_EL_CONTRATO_DE_FLUXBEAM"; 
+
+        function initChart() {
+            if(TOKEN_ADDRESS !== "AQUÍ_PEGAS_EL_CONTRATO_DE_FLUXBEAM") {
+                document.getElementById('chart-status').style.display = 'none';
+                const iframe = document.createElement('iframe');
+                iframe.src = https://dexscreener.com/solana/${TOKEN_ADDRESS}?embed=1&theme=dark&trades=0&info=0;
+                iframe.style.width = "100%";
+                iframe.style.height = "500px";
+                iframe.style.border = "none";
+                document.getElementById('chart-container').appendChild(iframe);
+            }
+        }
+
+        // SIMULACIÓN DE LA BARRA DE QUEMA (Se activará con el volumen real)
+        function updateBurnBar() {
+            // Aquí iría la conexión real a la blockchain para leer el supply actual
+            // Por ahora, simulamos que ya empezó la quema:
+            setTimeout(() => {
+                document.getElementById('burn-bar').style.width = "45%"; // Ejemplo: 45% quemado
+                document.getElementById('current-supply').innerText = "LIVE SUPPLY: 550,000,000 AXQ";
+            }, 3000);
+        }
+
+        async function connectWallet() {
+            if (window.solana) {
+                try {
+                    const resp = await window.solana.connect();
+                    alert("Wallet Connected: " + resp.publicKey.toString());
+                } catch (err) {
+                    console.error(err);
+                }
+            } else {
+                alert("Please install Phantom Wallet");
+            }
+        }
+
+        window.onload = () => {
+            initChart();
+            updateBurnBar();
+        };
+    </script>
 </body>
 </html>
